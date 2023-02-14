@@ -15,14 +15,14 @@
         }
 
         body {
-            background-color: black;
+            background-color: rgb(10, 10, 10);
             display: flex;
             flex-direction: column;
             gap: 30px;
             justify-content: center;
             height: 100vh;
             align-items: center;
-            font-family: sans-serif;
+            font-family: 'Lobster', cursive;
             color: white;
         }
 
@@ -31,22 +31,18 @@
             justify-content: center;
         }
 
-        /* .main {
-            justify-content: center;
-            align-items: center;
-        } */
-
         .mainbox {
             width: 350px;
-            /* border: 2px solid red; */
             display: flex;
+            justify-content: center;
+            align-content: center;
             flex-wrap: wrap;
 
         }
 
         .box {
-            height: 100px;
-            width: 100px;
+            height: 110px;
+            width: 110px;
             border: 2px solid rgb(241, 155, 7);
             transition: 200ms;
             display: flex;
@@ -69,29 +65,56 @@
             background-color: green;
         }
 
+        .border {
+            border: green solid 2px;
+            background-color: rgb(68, 61, 48);
+            margin: 10px;
+        }
+
         .alert {
-            background-color: rgb(242, 187, 8);
+            background-color: rgb(165, 142, 66);
             border-radius: 20px;
             color: white;
             padding: 1rem 2rem;
         }
 
+        .drowmatch {
+            background-color: rgba(14, 240, 202, 0.584);
+            border-radius: 20px;
+            color: rgb(47, 27, 27);
+            padding: 1rem 2rem;
+        }
+
+        .card {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .vs {
+            background-color: rgb(249, 141, 33);
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
         .d-none {
             display: none;
-
         }
 
         .playerBox {
             display: flex;
             gap: 1rem;
-            /* flex-direction: column; */
-            /* border: 2px yellow solid; */
+        }
+
+        .playerBox h1 {
+            background-color: lightcoral;
+            padding: 5px 10px;
+            border-radius: 9px;
         }
 
         #output {
             background-color: dodgerblue;
             border-radius: 3px;
-            /* margin-bottom: 20px; */
         }
 
         .playersName,
@@ -109,6 +132,12 @@
 
         .playersStartGame:hover {
             background-color: rgb(63, 245, 63);
+        }
+
+        .mainbox-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 
@@ -130,11 +159,19 @@
         push
      -->
 
+
     <div id="output"></div>
 
     <div class="card" id="playerCard">
-        <input id="player1" class="playersName" type="text" placeholder="Enter Player1 Name" required> Vs
+        <input id="player1" class="playersName" type="text" placeholder="Enter Player1 Name" required>
+        <br>
+        <br>
+        <span class="vs"> Vs</span>
+        <br>
+        <br>
         <input id="player2" class="playersName" type="text" placeholder="Enter Player2 Names" required>
+        <br>
+        <br>
         <button class="playersStartGame" onclick="startGame()">Start Game</button>
     </div>
 
@@ -142,26 +179,27 @@
 
 
         <div class="playerBox">
-            <h1><span id="p1"></span> : <span id="p1WinCount"></span></h1>
-            <h1><span id="p2"></span> : <span id="p2WinCount"></span></h1>
-            <br>
+            <h1><span id="p1"></span> : <span id="p1WinCount"></span>💗</h1>
+            <h1><span id="p2"></span> : <span id="p2WinCount"></span>💚</h1>
             <h1>Draw : <span id="totalDrowMatch"></span></h1>
             <h1>Total :<span id="totalCount"></span> </h1>
         </div>
+        <br>
+        <br>
+        <div class="mainbox-center">
 
+            <div class="mainbox">
+                <div class="box" id="b1" onclick="handleSelect('b1')"></div>
+                <div class="box" id="b2" onclick="handleSelect('b2')"></div>
+                <div class="box" id="b3" onclick="handleSelect('b3')"></div>
+                <div class="box" id="b4" onclick="handleSelect('b4')"></div>
+                <div class="box" id="b5" onclick="handleSelect('b5')"></div>
+                <div class="box" id="b6" onclick="handleSelect('b6')"></div>
+                <div class="box" id="b7" onclick="handleSelect('b7')"></div>
+                <div class="box" id="b8" onclick="handleSelect('b8')"></div>
+                <div class="box" id="b9" onclick="handleSelect('b9')"></div>
 
-
-        <div class="mainbox">
-            <div class="box" id="b1" onclick="handleSelect('b1')"></div>
-            <div class="box" id="b2" onclick="handleSelect('b2')"></div>
-            <div class="box" id="b3" onclick="handleSelect('b3')"></div>
-            <div class="box" id="b4" onclick="handleSelect('b4')"></div>
-            <div class="box" id="b5" onclick="handleSelect('b5')"></div>
-            <div class="box" id="b6" onclick="handleSelect('b6')"></div>
-            <div class="box" id="b7" onclick="handleSelect('b7')"></div>
-            <div class="box" id="b8" onclick="handleSelect('b8')"></div>
-            <div class="box" id="b9" onclick="handleSelect('b9')"></div>
-
+            </div>
         </div>
     </div>
 
@@ -233,7 +271,7 @@
             if (rwc1 || rwc2 || rwc3 || rwc4 || rwc5 || rwc6 || rwc7 || rwc8) {
                 document.getElementById("output").innerHTML = `
                <div class="alert">
-                    <h1>Red Is Winner</h1>
+                    <h1>🏆 Red Is Winner 🏆</h1>
                 </div>
                `
 
@@ -257,7 +295,7 @@
             if (bwc1 || bwc2 || bwc3 || bwc4 || bwc5 || bwc6 || bwc7 || bwc8) {
                 document.getElementById("output").innerHTML = `
                <div class="alert">
-                    <h1>Green Is Winner</h1>
+                    <h1>🏆 Green Is Winner 🏆</h1>
                 </div>
                `
                 player2WinCount++
@@ -307,7 +345,11 @@
                         document.getElementById("totalDrowMatch").innerHTML = totalDrowMatch
                         matchTotalCount++
                         document.getElementById("totalCount").innerHTML = matchTotalCount
-                        document.getElementById("output").innerHTML = "<h1> Match Draw</h1>"
+                        document.getElementById("output").innerHTML =
+                            `<div class="drowmatch">
+                                  <h1>❌ Match Draw ❌</h1>
+                             </div>`
+
                         resetGame()
                     }
                 }
