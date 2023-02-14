@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>XnO Pro</title>
+
     <style>
         * {
             margin: 0;
@@ -25,6 +26,11 @@
             color: white;
         }
 
+        /* .main {
+            justify-content: center;
+            align-items: center;
+        } */
+
         .mainbox {
             width: 350px;
             /* border: 2px solid red; */
@@ -35,7 +41,7 @@
         .box {
             height: 100px;
             width: 100px;
-            border: 2px dotted rgb(223, 19, 241);
+            border: 2px solid rgb(241, 155, 7);
             transition: 200ms;
             display: flex;
             justify-content: center;
@@ -78,6 +84,7 @@
         #output {
             background-color: dodgerblue;
             border-radius: 3px;
+            /* margin-bottom: 20px; */
         }
 
         .playersName,
@@ -89,7 +96,7 @@
         }
 
         .playersName:hover {
-            background-color: rgb(246, 122, 225);
+            background-color: rgb(246, 218, 7);
             border: 2px solid rgb(253, 254, 255);
         }
 
@@ -97,6 +104,8 @@
             background-color: rgb(63, 245, 63);
         }
     </style>
+
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
@@ -110,8 +119,7 @@
         step 6 Reset game logics
      -->
 
-    <div id="output">
-    </div>
+    <div id="output"></div>
 
     <div class="card" id="playerCard">
         <input id="player1" class="playersName" type="text" placeholder="Enter Player1 Name" required> Vs
@@ -145,6 +153,7 @@
 
         </div>
     </div>
+
 
     <!-- java script  -->
 
