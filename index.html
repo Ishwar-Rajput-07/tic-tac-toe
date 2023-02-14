@@ -26,6 +26,11 @@
             color: white;
         }
 
+        #gameBox {
+            align-items: center;
+            justify-content: center;
+        }
+
         /* .main {
             justify-content: center;
             align-items: center;
@@ -36,6 +41,7 @@
             /* border: 2px solid red; */
             display: flex;
             flex-wrap: wrap;
+
         }
 
         .box {
@@ -72,6 +78,7 @@
 
         .d-none {
             display: none;
+
         }
 
         .playerBox {
@@ -117,6 +124,10 @@
         step 4 (winner + draw logic)
         step 5 print score
         step 6 Reset game logics
+
+        gid add . 
+        git commit
+        push
      -->
 
     <div id="output"></div>
@@ -297,6 +308,7 @@
                         matchTotalCount++
                         document.getElementById("totalCount").innerHTML = matchTotalCount
                         document.getElementById("output").innerHTML = "<h1> Match Draw</h1>"
+                        resetGame()
                     }
                 }
             }
